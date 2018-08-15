@@ -14,19 +14,19 @@
         </properties>
 
         <dependencies>
-            <dependency>
+           <!-- <dependency>
                 <groupId>javax</groupId>
                 <artifactId>javaee-api</artifactId>
                 <version>7.0</version>
                 <scope>provided</scope>
-            </dependency>
+            </dependency>-->
 
-             <!--<dependency>
+             <dependency>
                  <groupId>javax.servlet</groupId>
                  <artifactId>javax.servlet-api</artifactId>
                  <version>3.1.0</version>
                  <scope>provided</scope>
-             </dependency>-->
+             </dependency>
             <dependency>
                 <groupId>org.glassfish.web</groupId>
                 <artifactId>javax.servlet.jsp.jstl</artifactId>
@@ -220,5 +220,16 @@
                     </configuration>
                 </plugin>
             </plugins>
+<!--防止错误：war包里面缺少Mapper对应的xml文件，也就是没有把xml文件打包进去-->
+            <resources>
+                <resource>
+                    <directory>src/main/java</directory>
+                    <includes>
+                        <include>**/*.xml</include>
+                    </includes>
+                    <filtering>false</filtering>
+                </resource>
+            </resources>
+
         </build>
 </project>
